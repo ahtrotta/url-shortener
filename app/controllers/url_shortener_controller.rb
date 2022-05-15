@@ -1,4 +1,4 @@
 class UrlShortenerController < ApplicationController
-  def home
+  def index 
   end
 end
