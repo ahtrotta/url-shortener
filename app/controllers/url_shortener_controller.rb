@@ -22,7 +22,7 @@ class UrlShortenerController < ApplicationController
     end
   end
 
-  def show
+  def redirect
     @url_association = UrlAssociation.find_by short_url: params[:short_url]
     redirect_to @url_association.long_url, status: :moved_permanently
   end
