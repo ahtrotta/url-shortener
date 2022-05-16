@@ -15,8 +15,7 @@ class UrlShortenerController < ApplicationController
     @url_association = UrlAssociation.new(long_url: long_url, short_url: short_url)
 
     if @url_association.save
-      # change to use redirect_to
-      render html: "#{root_url}#{short_url}"
+      redirect_to @url_association
     else
       render html: 'failed to save to database'
     end
