@@ -7,8 +7,10 @@ module UrlAssociationsHelper
   def ensure_protocol(input_url)
     if /\Ahttp[s]?:\/\//.match(input_url)
       input_url
-    elsif input_url
+    elsif !input_url.blank?
       'https://' + input_url
+    else
+      input_url
     end
   end
 end
