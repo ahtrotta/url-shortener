@@ -2,7 +2,7 @@
   <%= form.label :long_url, "URL to shorten:" %>
   <% if @url_association&.errors&.any? %>
     <% @url_association.errors.each do |error| %>
-      <p><%= error.full_message %></p>
+      <p class="error"><%= error.full_message %></p>
     <% end %>
   <% end %>
   <%= form.text_field :long_url %>
