@@ -11,9 +11,4 @@ module UrlAssociationsHelper
       'https://' + input_url
     end
   end
-
-  def valid_url?(input_url)
-    status_code = URI.open(input_url).status.first rescue '404'
-    status_code == '200'
-  end
 end
