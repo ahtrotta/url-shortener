@@ -10,10 +10,10 @@ class UrlShortenerHelperTest < ActionView::TestCase
   end
 
   test "should append http:// to URLs without a protocol" do
-    assert_equal create_valid_long_url('www.google.com'), 'http://www.google.com'
+    assert_equal ensure_protocol('www.google.com'), 'https://www.google.com'
   end
 
   test "should not append http:// to URLs with a protocol" do
-    assert_equal create_valid_long_url('https://www.google.com'), 'https://www.google.com'
+    assert_equal ensure_protocol('https://www.google.com'), 'https://www.google.com'
   end
 end

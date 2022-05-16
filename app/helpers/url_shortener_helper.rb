@@ -4,11 +4,11 @@ module UrlShortenerHelper
     (Time.now.to_f * 10000000000.0).to_i.to_s(36)
   end
 
-  def create_valid_long_url(input_url)
-    if !/\Ahttp[s]?:\/\//.match(input_url)
-      'http://' + input_url
-    else
+  def ensure_protocol(input_url)
+    if /\Ahttp[s]?:\/\//.match(input_url)
       input_url
+    elsif input_url
+      'https://' + input_url
     end
   end
 end
