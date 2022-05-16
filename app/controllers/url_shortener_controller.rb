@@ -5,6 +5,7 @@ class UrlShortenerController < ApplicationController
   def create
     long_url = helpers.ensure_protocol params[:long_url]
     if !helpers.valid_url? long_url
+      # change to redirect_to
       render html: long_url
       return
     end

@@ -15,6 +15,7 @@ module UrlShortenerHelper
   end
 
   def valid_url?(input_url)
-    URI.open(input_url).status.first == '200'
+    status_code = URI.open(input_url).status.first rescue '404'
+    status_code == '200'
   end
 end
