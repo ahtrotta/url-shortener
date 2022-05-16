@@ -3,8 +3,9 @@ class UrlShortenerController < ApplicationController
   end
 
   def create
-    long_url = params[:long_url]
+    long_url = helpers.create_valid_long_url params[:long_url]
     short_url = helpers.create_short_url
+
     @url_association = UrlAssociation.new(long_url: long_url, short_url: short_url)
 
     if @url_association.save
