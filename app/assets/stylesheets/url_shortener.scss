@@ -1,3 +1,45 @@
 // Place all the styles related to the UrlShortener controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  background-color: #8F60EF;
+  color: #F0B678;
+  font-family: Arial, Helvetica, sans-serif;
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 18px;
+    }
+
+    input {
+      border-radius: 12px;
+      padding: 10px 10px;
+      margin: 10px 0;
+      border: 3px solid #C2AAF2;
+    }
+
+    input[type="submit"] {
+      width: 100px;
+      background-color: #544CD9;
+      color: #E557F8;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 700;
+
+      &:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+    }
+  }
+}
