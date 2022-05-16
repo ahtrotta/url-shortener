@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module UrlShortenerHelper
   def create_short_url
     # get current time in nanoseconds (since default Epoch) and convert to base 36
@@ -10,5 +12,9 @@ module UrlShortenerHelper
     elsif input_url
       'https://' + input_url
     end
+  end
+
+  def valid_url?(input_url)
+    URI.open(input_url).status.first == '200'
   end
 end

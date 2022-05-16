@@ -4,6 +4,11 @@ class UrlShortenerController < ApplicationController
 
   def create
     long_url = helpers.ensure_protocol params[:long_url]
+    if !helpers.valid_url? long_url
+      render html: long_url
+      return
+    end
+
     short_url = helpers.create_short_url
 
     @url_association = UrlAssociation.new(long_url: long_url, short_url: short_url)
