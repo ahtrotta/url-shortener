@@ -13,4 +13,9 @@ class UrlShortenerController < ApplicationController
       render html: 'failed to save to database'
     end
   end
+
+  def show
+    @url_association = UrlAssociation.find_by short_url: params[:short_url]
+    redirect_to @url_association.long_url, status: 301
+  end
 end
