@@ -8,4 +8,12 @@ class UrlShortenerHelperTest < ActionView::TestCase
   test "should not return the same value on sequential invocations" do
     assert_not_equal create_short_url, create_short_url
   end
+
+  test "should append http:// to URLs without a protocol" do
+    assert_equal create_valid_long_url('www.google.com'), 'http://www.google.com'
+  end
+
+  test "should not append http:// to URLs with a protocol" do
+    assert_equal create_valid_long_url('https://www.google.com'), 'https://www.google.com'
+  end
 end
