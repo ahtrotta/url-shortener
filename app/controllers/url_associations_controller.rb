@@ -1,5 +1,5 @@
 class UrlAssociationsController < ApplicationController
-  def index
+  def new
   end
 
   def show
@@ -15,7 +15,7 @@ class UrlAssociationsController < ApplicationController
     if @url_association.save
       redirect_to @url_association
     else
-      render html: 'failed to save to database'
+      render 'new'
     end
   end
 
