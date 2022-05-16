@@ -15,7 +15,7 @@ class UrlAssociationsController < ApplicationController
     if @url_association.save
       redirect_to @url_association
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
