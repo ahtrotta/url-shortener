@@ -3,11 +3,11 @@ class UrlAssociationsController < ApplicationController
   end
 
   def show
-    @url_association = UrlAssociation.find(params[:id])
+    @url_association = UrlAssociation.find(params.require(:id))
   end
 
   def create
-    long_url = helpers.ensure_protocol params[:long_url]
+    long_url = helpers.ensure_protocol params.require(:long_url)
     short_url = helpers.create_short_url
 
     @url_association = UrlAssociation.new(long_url: long_url, short_url: short_url)
@@ -20,7 +20,7 @@ class UrlAssociationsController < ApplicationController
   end
 
   def redirect
-    @url_association = UrlAssociation.find_by short_url: params[:short_url]
+    @url_association = UrlAssociation.find_by short_url: params.require(:short_url)
     redirect_to @url_association.long_url, status: :moved_permanently
   end
 end
