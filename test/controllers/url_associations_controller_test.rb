@@ -18,7 +18,10 @@ class UrlAssociationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post to root and redirect" do
-    post root_url, params: { long_url: 'https://www.google.com' }
+    post root_url, params: { long_url: 'https://www.google.com', short_url: '123456789012' }
     assert_response :found
+    follow_redirect!
+    assert_response :success
+    assert_select 'p', 'long URL:'
   end
 end
