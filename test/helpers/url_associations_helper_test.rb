@@ -9,11 +9,15 @@ class UrlAssociationsHelperTest < ActionView::TestCase
     assert_not_equal create_short_url, create_short_url
   end
 
-  test "should append http:// to URLs without a protocol" do
+  test "should append https:// to URLs without a protocol" do
     assert_equal ensure_protocol('www.google.com'), 'https://www.google.com'
   end
 
-  test "should not append http:// to URLs with a protocol" do
+  test "should not append https:// to URLs with a https://" do
     assert_equal ensure_protocol('https://www.google.com'), 'https://www.google.com'
+  end
+
+  test "should not append https:// to URLs with a http://" do
+    assert_equal ensure_protocol('http://www.google.com'), 'http://www.google.com'
   end
 end
