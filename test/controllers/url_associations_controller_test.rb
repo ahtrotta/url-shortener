@@ -24,4 +24,14 @@ class UrlAssociationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'p', 'long URL:'
   end
+
+  test "should be able to retrieve a URL association" do
+    get '/url_associations/1'
+    assert_response :success
+  end
+
+  test "should get redirected when accessing short_url" do
+    get '/testShortUrl'
+    assert_response :moved_permanently
+  end
 end
